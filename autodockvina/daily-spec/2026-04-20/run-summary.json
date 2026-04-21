@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-04-20 21:13:35 PDT",
+  "title": "autodockvina Specification",
+  "material_change": true,
+  "latest_html_path": "/home/joethomas/Documents/Github/SpecWebpages/autodockvina/latest/specification.html",
+  "latest_markdown_path": "/home/joethomas/Documents/Github/SpecWebpages/autodockvina/latest/specification.md",
+  "consulted_files": [
+    "/home/joethomas/Documents/Github/autodockVinaRMSD/autodockvina/meeko_cif_to_vina.py",
+    "/home/joethomas/Documents/Github/autodockVinaRMSD/autodockvina/scripts/score_boltz_run_minimized.py",
+    "/home/joethomas/Documents/Github/autodockVinaRMSD/autodockvina/scripts/score_boltz_run.py",
+    "/home/joethomas/Documents/Github/autodockVinaRMSD/autodockvina/affinity/parse_docking.py",
+    "/home/joethomas/Documents/Github/autodockVinaRMSD/autodockvina/affinity/dataset_build.py",
+    "/home/joethomas/Documents/Github/autodockVinaRMSD/autodockvina/affinity/join_dataset.py",
+    "/home/joethomas/Documents/Github/autodockVinaRMSD/autodockvina/affinity/train_calibrator.py",
+    "/home/joethomas/Documents/Github/autodockVinaRMSD/autodockvina/affinity/predict.py",
+    "/home/joethomas/Documents/Github/autodockVinaRMSD/autodockvina/affinity/abfe/abfe_pilot.py",
+    "/home/joethomas/Documents/Github/autodockVinaRMSD/autodockvina/affinity/abfe/decouple.py"
+  ],
+  "top_clarifications": [
+    "The real mainline is the minimized/cofactor-aware Boltz-CIF to Meeko/Vina path, not just a thin docking wrapper.",
+    "The repo contains a distinct learned calibration surface on top of docking outputs, and that layer must be reviewed separately from raw Vina scores.",
+    "The currently shipped trained model artifact is extremely small and should not be mistaken for production-grade calibration evidence."
+  ]
+}

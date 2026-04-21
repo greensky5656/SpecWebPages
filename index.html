@@ -8,9 +8,9 @@
     :root {
       --bg: #0b1020;
       --panel: #121a2b;
-      --panel-2: #18243c;
+      --panel2: #18243c;
       --text: #e9eef8;
-      --muted: #aeb9cc;
+      --muted: #afbbcf;
       --line: #30405f;
       --accent: #78c8ff;
       --good: #44d492;
@@ -26,15 +26,14 @@
     }
     a { color: var(--accent); text-decoration: none; }
     .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 24px 64px; }
-    .hero, .card, .mini {
-      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+    .hero, .card {
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
       border: 1px solid var(--line);
       border-radius: 20px;
     }
     .hero { padding: 28px; margin-bottom: 24px; }
     .hero h1 { margin: 0 0 10px; font-size: 40px; line-height: 1.1; }
     .hero p { margin: 10px 0 0; color: var(--muted); max-width: 900px; }
-    .badges { margin-bottom: 14px; }
     .badge {
       display: inline-block;
       padding: 4px 10px;
@@ -48,23 +47,28 @@
     .good { background: rgba(68,212,146,.12); color: var(--good); border-color: rgba(68,212,146,.35); }
     .warn { background: rgba(255,209,102,.12); color: var(--warn); border-color: rgba(255,209,102,.35); }
     h2 { font-size: 28px; margin: 34px 0 14px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
+    .spec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
     .card { padding: 22px; }
     .card h3 { margin: 0 0 10px; font-size: 22px; }
     .card p { margin: 0 0 16px; color: var(--muted); }
     .meta {
       display: grid;
-      grid-template-columns: 130px 1fr;
+      grid-template-columns: 150px 1fr;
       gap: 8px 12px;
       margin: 16px 0 18px;
       font-size: 14px;
     }
     .meta div:nth-child(odd) { color: var(--muted); }
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
     .button {
       display: inline-block;
       padding: 10px 14px;
@@ -73,33 +77,38 @@
       background: #15223b;
       color: var(--text);
       font-weight: 600;
+      white-space: normal;
     }
     .button.primary {
       background: linear-gradient(180deg, #1d5ea8, #184b84);
       border-color: #3c77b8;
     }
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      margin-top: 18px;
-    }
-    .mini { padding: 18px; }
-    .mini h4 { margin: 0 0 8px; font-size: 18px; }
-    .mini p { margin: 0; color: var(--muted); font-size: 14px; }
     code {
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       background: var(--code);
       padding: 2px 6px;
       border-radius: 6px;
       border: 1px solid var(--line);
+      word-break: break-word;
+    }
+    .small { font-size: 14px; color: var(--muted); }
+    @media (max-width: 700px) {
+      .meta {
+        grid-template-columns: 1fr;
+      }
+      .card {
+        padding: 18px;
+      }
+      .hero h1 {
+        font-size: 34px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <section class="hero">
-      <div class="badges">
+      <div>
         <span class="badge good">Website index</span>
         <span class="badge good">Multi-spec ready</span>
         <span class="badge warn">Future specs can be added here</span>
@@ -113,42 +122,78 @@
     </section>
 
     <h2>Available specifications</h2>
-    <div class="grid">
+    <div class="spec-list">
       <article class="card">
         <h3>MDPipeline Specification</h3>
-        <p>
-          Scientific review page for MDPipeline, tailored for genetics leadership and
-          thermodynamics / molecular-engineering review.
-        </p>
+        <p>Codebase-grounded scientific review page for MDPipeline.</p>
         <div class="meta">
           <div>Status</div><div>Active</div>
           <div>Primary audience</div><div>Genetics director, thermodynamics engineers, chemical / molecular engineers</div>
-          <div>Primary page</div><div><code>latest/specification.html</code></div>
-          <div>Archive</div><div><code>daily-spec/2026-04-20/specification.html</code></div>
+          <div>Scientific role</div><div>Single-pose downstream MD + MM/GBSA workflow for comparative ranking support</div>
+          <div>Primary page</div><div><code>mdpipeline/latest/specification.html</code></div>
+          <div>Archive</div><div><code>mdpipeline/daily-spec/2026-04-20/specification.html</code></div>
         </div>
         <div class="actions">
-          <a class="button primary" href="latest/specification.html">Open latest webpage</a>
-          <a class="button" href="latest/specification.md">Open markdown</a>
-          <a class="button" href="latest/run-summary.json">Open run summary</a>
-          <a class="button" href="daily-spec/2026-04-20/specification.html">Open dated snapshot</a>
+          <a class="button primary" href="mdpipeline/latest/specification.html">Open latest webpage</a>
+          <a class="button" href="mdpipeline/latest/specification.md">Open markdown</a>
+          <a class="button" href="mdpipeline/latest/run-summary.json">Open run summary</a>
+          <a class="button" href="mdpipeline/daily-spec/2026-04-20/specification.html">Open dated snapshot</a>
         </div>
       </article>
-    </div>
 
-    <h2>Planned expansion</h2>
-    <div class="mini-grid">
-      <section class="mini">
-        <h4>More pipeline specs</h4>
-        <p>Add future specs here as additional cards linking to each spec’s <code>latest/</code> and archive pages.</p>
-      </section>
-      <section class="mini">
-        <h4>Stable web-service entrypoint</h4>
-        <p>The web service can load this root <code>index.html</code> as the site homepage while each individual spec remains independently publishable.</p>
-      </section>
-      <section class="mini">
-        <h4>Archive-friendly</h4>
-        <p>Dated snapshots can accumulate under <code>daily-spec/YYYY-MM-DD/</code> without breaking the top-level navigation.</p>
-      </section>
+      <article class="card">
+        <h3>OpenFE pmx/GROMACS Mutation RBFE Specification</h3>
+        <p>Codebase-grounded scientific review page for the OpenFE pmx/GROMACS mutation-RBFE pipeline.</p>
+        <div class="meta">
+          <div>Status</div><div>Active</div>
+          <div>Primary audience</div><div>Genetics director, mutation-effect reviewers, thermodynamics engineers</div>
+          <div>Scientific role</div><div>Fail-closed pmx/GROMACS WT/MUT mutation-RBFE orchestration with QC, reporting, and release surfaces</div>
+          <div>Primary page</div><div><code>openfe/latest/specification.html</code></div>
+          <div>Archive</div><div><code>openfe/daily-spec/2026-04-20/specification.html</code></div>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="openfe/latest/specification.html">Open latest webpage</a>
+          <a class="button" href="openfe/latest/specification.md">Open markdown</a>
+          <a class="button" href="openfe/latest/run-summary.json">Open run summary</a>
+          <a class="button" href="openfe/daily-spec/2026-04-20/specification.html">Open dated snapshot</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>autodockvina Specification</h3>
+        <p>Codebase-grounded scientific review page for the Boltz → Meeko → AutoDock Vina workflow.</p>
+        <div class="meta">
+          <div>Status</div><div>Active</div>
+          <div>Primary audience</div><div>Genetics director, docking/calibration reviewers, thermodynamics engineers</div>
+          <div>Scientific role</div><div>Docking, feature engineering, learned calibration, and optional ABFE pilot surfaces</div>
+          <div>Primary page</div><div><code>autodockvina/latest/specification.html</code></div>
+          <div>Archive</div><div><code>autodockvina/daily-spec/2026-04-20/specification.html</code></div>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="autodockvina/latest/specification.html">Open latest webpage</a>
+          <a class="button" href="autodockvina/latest/specification.md">Open markdown</a>
+          <a class="button" href="autodockvina/latest/run-summary.json">Open run summary</a>
+          <a class="button" href="autodockvina/daily-spec/2026-04-20/specification.html">Open dated snapshot</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>boltzbase Specification</h3>
+        <p>Codebase-grounded scientific review page for boltzbase / Boltz affinity-prediction surfaces.</p>
+        <div class="meta">
+          <div>Status</div><div>Active</div>
+          <div>Primary audience</div><div>Genetics director, screening reviewers, thermodynamics engineers</div>
+          <div>Scientific role</div><div>Native structure + affinity model output surfaces with separate non-productized evaluation scripts</div>
+          <div>Primary page</div><div><code>boltzbase/latest/specification.html</code></div>
+          <div>Archive</div><div><code>boltzbase/daily-spec/2026-04-20/specification.html</code></div>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="boltzbase/latest/specification.html">Open latest webpage</a>
+          <a class="button" href="boltzbase/latest/specification.md">Open markdown</a>
+          <a class="button" href="boltzbase/latest/run-summary.json">Open run summary</a>
+          <a class="button" href="boltzbase/daily-spec/2026-04-20/specification.html">Open dated snapshot</a>
+        </div>
+      </article>
     </div>
   </div>
 </body>

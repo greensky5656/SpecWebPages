@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-04-20 21:13:35 PDT",
+  "title": "boltzbase Specification",
+  "material_change": true,
+  "latest_html_path": "/home/joethomas/Documents/Github/SpecWebpages/boltzbase/latest/specification.html",
+  "latest_markdown_path": "/home/joethomas/Documents/Github/SpecWebpages/boltzbase/latest/specification.md",
+  "consulted_files": [
+    "/home/joethomas/Documents/Github/b1-b4/boltzbase/boltz-main/src/boltz/main.py",
+    "/home/joethomas/Documents/Github/b1-b4/boltzbase/boltz-main/src/boltz/data/write/writer.py",
+    "/home/joethomas/Documents/Github/b1-b4/boltzbase/boltz-main/src/boltz/model/models/boltz2.py",
+    "/home/joethomas/Documents/Github/b1-b4/boltzbase/boltz-main/src/boltz/model/modules/affinity.py",
+    "/home/joethomas/Documents/Github/b1-b4/boltzbase/boltz-main/src/boltz/model/utils/affinity_ranking.py",
+    "/home/joethomas/Documents/Github/b1-b4/boltzbase/boltz-main/src/boltz/utils/affinity_units.py",
+    "/home/joethomas/Documents/Github/b1-b4/boltzbase/boltz-main/src/boltz/data/module/inferencev2.py",
+    "/home/joethomas/Documents/Github/b1-b4/boltzbase/boltz-main/src/boltz/data/parse/schema.py",
+    "/home/joethomas/Documents/Github/b1-b4/boltzbase/scripts/eval/run_evals.py",
+    "/home/joethomas/Documents/Github/b1-b4/boltzbase/scripts/eval/aggregate_evals.py"
+  ],
+  "top_clarifications": [
+    "The authoritative shipped operator surface is still `boltz predict`; evaluation is not exposed as a first-class installed CLI mode.",
+    "Current affinity JSON semantics are defined by writer.py and represent model output plus convenience conversions, not a physics simulation contract.",
+    "Repo-level benchmark/evaluation claims must be separated from the actual productized CLI and current writer/output surfaces."
+  ]
+}
