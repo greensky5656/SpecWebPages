@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SpecWebpages</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a2b;
+      --panel-2: #18243c;
+      --text: #e9eef8;
+      --muted: #aeb9cc;
+      --line: #30405f;
+      --accent: #78c8ff;
+      --good: #44d492;
+      --warn: #ffd166;
+      --code: #0d1525;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: radial-gradient(circle at top, #14203a 0%, var(--bg) 45%);
+      color: var(--text);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 24px 64px; }
+    .hero, .card, .mini {
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+    }
+    .hero { padding: 28px; margin-bottom: 24px; }
+    .hero h1 { margin: 0 0 10px; font-size: 40px; line-height: 1.1; }
+    .hero p { margin: 10px 0 0; color: var(--muted); max-width: 900px; }
+    .badges { margin-bottom: 14px; }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      margin-right: 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      border: 1px solid transparent;
+    }
+    .good { background: rgba(68,212,146,.12); color: var(--good); border-color: rgba(68,212,146,.35); }
+    .warn { background: rgba(255,209,102,.12); color: var(--warn); border-color: rgba(255,209,102,.35); }
+    h2 { font-size: 28px; margin: 34px 0 14px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .card { padding: 22px; }
+    .card h3 { margin: 0 0 10px; font-size: 22px; }
+    .card p { margin: 0 0 16px; color: var(--muted); }
+    .meta {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 8px 12px;
+      margin: 16px 0 18px;
+      font-size: 14px;
+    }
+    .meta div:nth-child(odd) { color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .button {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #15223b;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .button.primary {
+      background: linear-gradient(180deg, #1d5ea8, #184b84);
+      border-color: #3c77b8;
+    }
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .mini { padding: 18px; }
+    .mini h4 { margin: 0 0 8px; font-size: 18px; }
+    .mini p { margin: 0; color: var(--muted); font-size: 14px; }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      background: var(--code);
+      padding: 2px 6px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="badges">
+        <span class="badge good">Website index</span>
+        <span class="badge good">Multi-spec ready</span>
+        <span class="badge warn">Future specs can be added here</span>
+      </div>
+      <h1>SpecWebpages</h1>
+      <p>
+        This is the landing page for published scientific and technical specification webpages.
+        Start here, then click into a specific specification. The site is structured so more specs
+        can be added over time without changing the web-service entrypoint.
+      </p>
+    </section>
+
+    <h2>Available specifications</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>MDPipeline Specification</h3>
+        <p>
+          Scientific review page for MDPipeline, tailored for genetics leadership and
+          thermodynamics / molecular-engineering review.
+        </p>
+        <div class="meta">
+          <div>Status</div><div>Active</div>
+          <div>Primary audience</div><div>Genetics director, thermodynamics engineers, chemical / molecular engineers</div>
+          <div>Primary page</div><div><code>latest/specification.html</code></div>
+          <div>Archive</div><div><code>daily-spec/2026-04-20/specification.html</code></div>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="latest/specification.html">Open latest webpage</a>
+          <a class="button" href="latest/specification.md">Open markdown</a>
+          <a class="button" href="latest/run-summary.json">Open run summary</a>
+          <a class="button" href="daily-spec/2026-04-20/specification.html">Open dated snapshot</a>
+        </div>
+      </article>
+    </div>
+
+    <h2>Planned expansion</h2>
+    <div class="mini-grid">
+      <section class="mini">
+        <h4>More pipeline specs</h4>
+        <p>Add future specs here as additional cards linking to each spec’s <code>latest/</code> and archive pages.</p>
+      </section>
+      <section class="mini">
+        <h4>Stable web-service entrypoint</h4>
+        <p>The web service can load this root <code>index.html</code> as the site homepage while each individual spec remains independently publishable.</p>
+      </section>
+      <section class="mini">
+        <h4>Archive-friendly</h4>
+        <p>Dated snapshots can accumulate under <code>daily-spec/YYYY-MM-DD/</code> without breaking the top-level navigation.</p>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
