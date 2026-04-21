@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MDPipeline Specification — Scientific Review</title>
+<style>
+:root{--bg:#0b1020;--panel:#11192c;--panel2:#18243c;--text:#e9eef8;--muted:#afbbcf;--line:#314262;--accent:#7fd1ff;--good:#47d992;--warn:#ffd166;--bad:#ff8484;--code:#0d1525;}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif} a{color:var(--accent);text-decoration:none}
+.layout{display:grid;grid-template-columns:300px 1fr;min-height:100vh} .sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px;border-right:1px solid var(--line);background:linear-gradient(180deg,var(--panel),var(--bg))}
+.main{padding:32px;max-width:1120px} .hero,.card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:18px} .hero{padding:28px;margin-bottom:24px} .card{padding:22px;margin:18px 0}
+h1{margin:0 0 10px;font-size:38px;line-height:1.15} h2{margin-top:36px;padding-top:22px;border-top:1px solid var(--line);font-size:28px} h3{font-size:20px;margin:20px 0 10px} .muted{color:var(--muted)}
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;margin-right:8px;border:1px solid transparent} .good{background:rgba(71,217,146,.12);color:var(--good);border-color:rgba(71,217,146,.35)} .warn{background:rgba(255,209,102,.12);color:var(--warn);border-color:rgba(255,209,102,.35)} .bad{background:rgba(255,132,132,.12);color:var(--bad);border-color:rgba(255,132,132,.35)}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace} code{background:var(--code);padding:2px 6px;border:1px solid var(--line);border-radius:6px} pre{background:var(--code);padding:14px;border:1px solid var(--line);border-radius:12px;overflow:auto}
+table{width:100%;border-collapse:collapse;margin:14px 0} th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top} th{background:#0f1729} .two{display:grid;grid-template-columns:1fr 1fr;gap:18px} .toc a{display:block;padding:8px 0;color:var(--text)} ul{padding-left:22px}
+@media (max-width:980px){.layout{grid-template-columns:1fr} .sidebar{position:relative;height:auto} .two{grid-template-columns:1fr}}
+</style></head>
+<body><div class="layout"><aside class="sidebar"><div class="muted" style="font-size:13px">Scientific signoff page</div><h2 style="border:none;padding-top:0;margin-top:10px;font-size:24px">MDPipeline Specification</h2><p class="muted" style="font-size:14px">Updated 2026-04-20 21:13:35 PDT</p><div style="margin:12px 0 16px"><span class="badge good">Genetics leadership view</span><span class="badge good">Thermodynamics view</span><span class="badge warn">Software detail minimized</span></div><nav class="toc"><a href="#exec">Executive view for signoff</a><a href="#director">What a genetics director should know</a><a href="#thermo">What a thermodynamics / molecular engineer should know</a><a href="#workflow">Scientific workflow</a><a href="#selection">Pose-selection rule</a><a href="#thermo-steps">Thermodynamic interpretation of the workflow</a><a href="#inputs">Input and output evidence</a><a href="#limits">Current scientific limits</a><a href="#deps">Operational dependencies</a><a href="#review">Recommended signoff questions</a><a href="#evidence">Evidence appendix</a></nav></aside>
+<main class="main">
+<section class="hero"><div><span class="badge good">For scientific signoff</span><span class="badge good">Audience-retargeted</span></div><h1>MDPipeline Specification for Scientific Review</h1><p>This version is written primarily for a genetics PhD director and a chemical / molecular engineer focused on thermodynamic interpretation. It still cites code and artifacts, but it foregrounds the scientific purpose, decision relevance, assumptions, and thermodynamic meaning of each step rather than the software architecture alone.</p><p class="muted">Grounded against current documents and shipped source files. Where the code and the broader scientific ambition diverge, that gap is stated explicitly rather than smoothed over.</p></section>
+
+<section id="exec"><h2>Executive view for signoff</h2><div class="card"><table><tr><th>Question</th><th>Current answer</th></tr>
+<tr><td>What does the pipeline currently do?</td><td>It takes one pre-existing <code>boltz_results_*</code> case, selects one candidate pose, validates file consistency, builds a solvated protein–ligand system, runs restrained MD, and computes MM/GBSA-style outputs for relative ranking.</td></tr>
+<tr><td>What is the scientific role?</td><td>Post-processing and ranking support. Not de novo docking. Not a rigorous absolute binding free-energy system.</td></tr>
+<tr><td>What is the biggest scientific simplification?</td><td><span class="badge warn">Single-pose decision</span> The shipped selection rule commits to one pose by minimum <code>score_only_affinity_kcal_per_mol</code>.</td></tr>
+<tr><td>What is the main thermodynamic caveat?</td><td><span class="badge warn">Approximate ranking signal</span> The endpoint is MM/GBSA-style ranking support, not a validated free-energy truth layer.</td></tr>
+<tr><td>What is the main operational caveat?</td><td><span class="badge bad">External-tool dependent</span> The present host did not have AmberTools / GROMACS / protonation executables on <code>PATH</code> when this page was generated.</td></tr>
+</table></div></section>
+
+<section id="director"><h2>What a genetics director should know</h2><div class="card"><ul>
+<li>The pipeline does <strong>not</strong> explore many biological hypotheses at once; it follows one chosen structural hypothesis per case.</li>
+<li>Its upstream dependency is a Boltz + Vina result family. That means biological interpretation starts after an upstream structural/pose-generation step has already narrowed the search space.</li>
+<li>The pipeline's main value is to impose a more physically informed follow-up than raw docking scores alone: explicit solvation, restrained MD relaxation, and MM/GBSA-like scoring.</li>
+<li>The current shipped operator surface is per-case, not cohort-governed. It is therefore best viewed as a case-processing pipeline, not yet as a program-level decision authority.</li>
+<li>For signoff, the main strategic question is whether a one-pose, one-run MM/GBSA workflow is acceptable as a decision-support layer for your biology program, or whether replicate / multi-pose / benchmark-governed ranking must be required before use in higher-stakes calls.</li>
+</ul></div></section>
+
+<section id="thermo"><h2>What a thermodynamics / molecular engineer should know</h2><div class="card"><ul>
+<li>The workflow contains physically meaningful stages: explicit-solvent system build, restrained equilibration, production MD, trajectory metrics, then MM/GBSA analysis.</li>
+<li>The current thermodynamic reporting layer is <strong>approximate</strong>: MM/GBSA with configurable GB/PB solvent models and optional entropy diagnostics, not a formal alchemical free-energy calculation.</li>
+<li>Default entropy mode is <code>none</code>. This stabilizes reporting but means the default primary outputs are enthalpy-like / component summaries rather than a fully defended binding free energy.</li>
+<li>Current docs explicitly frame outputs as most useful for <strong>relative ranking within a comparable target/ligand series</strong>.</li>
+<li>The present workflow does not, in the shipped CLI, expose a multi-pose ensemble-ranking or benchmark-governed thermodynamic confidence layer.</li>
+</ul></div></section>
+
+<section id="workflow"><h2>Scientific workflow</h2><div class="card"><pre>Boltz structural candidates + Vina scoring
+  → choose one candidate pose
+  → verify that CIF / receptor / ligand files agree
+  → prepare receptor and ligand parameters
+  → build solvated protein–ligand system
+  → run restrained MD and production MD
+  → measure structural stability / contacts
+  → compute MM/GBSA-style energy summaries
+  → write machine-readable outputs</pre>
+<p>This summary is grounded in <code>MDPIPELINE_SCIENTIST_GUIDE.md</code>, <code>MDPIPELINE_ONE_PAGE_WORKFLOW.md</code>, and the shipped orchestration in <code>md_pipeline/cli.py</code>.</p></div></section>
+
+<section id="selection"><h2>Pose-selection rule</h2><div class="card"><p>The most important scientific policy in current shipped code is in <code>md_pipeline/selection.py</code>:</p><ul>
+<li>The pipeline reads <code>batch_results.tsv</code>, <code>batch_manifest.tsv</code>, and <code>batch_summary.json</code>.</li>
+<li>It chooses the model with the single minimum <code>score_only_affinity_kcal_per_mol</code>.</li>
+<li>It does <strong>not</strong> choose by <code>docking_affinity_kcal_per_mol</code>.</li>
+<li>It validates a ten-candidate assumption through <code>n_cifs_total = 10</code>.</li>
+<li>If the best choice is ambiguous or required files are missing, it fails closed.</li>
+</ul><p><strong>Why this matters scientifically:</strong> all downstream MD and MM/GBSA interpretation inherits this one-pose commitment. If the upstream pose ranking is wrong or underdetermined, downstream thermodynamic interpretation is anchored to the wrong structural hypothesis.</p></div></section>
+
+<section id="thermo-steps"><h2>Thermodynamic interpretation of the workflow</h2><div class="card"><table><tr><th>Stage</th><th>Scientific meaning</th><th>Current caution</th></tr>
+<tr><td>Pose validation</td><td>Protects against file mismatches so simulation starts from the intended complex.</td><td>Integrity check, not a thermodynamic validation.</td></tr>
+<tr><td>Receptor / ligand preparation</td><td>Defines the force-field representation and protonation-sensitive starting state.</td><td>Strongly tool- and chemistry-dependent.</td></tr>
+<tr><td>Solvated system build</td><td>Moves from static pose files to an explicit-solvent simulation system.</td><td>Quality depends on parameterization and preparation assumptions.</td></tr>
+<tr><td>Restrained equilibration</td><td>Allows limited structural relaxation while preserving gross pose context.</td><td>Can stabilize a chosen pose without proving it is the biologically dominant pose.</td></tr>
+<tr><td>Production MD</td><td>Samples local dynamics around the selected bound state.</td><td>Current default is finite and practical, not exhaustive.</td></tr>
+<tr><td>Trajectory metrics</td><td>Provide stability/context signals such as RMSD, contacts, distances, and H-bond occupancy.</td><td>Supportive evidence, not free-energy proof.</td></tr>
+<tr><td>MM/GBSA</td><td>Provides a tractable energetic ranking approximation from sampled frames.</td><td>Approximate endpoint; default entropy is off; best interpreted comparatively.</td></tr>
+</table>
+<h3>Current default protocol facts</h3>
+<ul>
+<li><code>ProtocolConfig</code> sets a staged schedule ending with <code>production = 20.0 ns</code>.</li>
+<li>Default solvent model set is <code>("gb",)</code>.</li>
+<li>Allowed solvent models are only <code>gb</code> and <code>pb</code>.</li>
+<li>Allowed entropy modes are <code>none</code>, <code>c2</code>, and <code>ie</code>.</li>
+<li>Default MM/GBSA window skips the first <code>2.0 ns</code> of production.</li>
+</ul></div></section>
+
+<section id="inputs"><h2>Input and output evidence</h2><div class="card"><h3>Inputs required by current code</h3><ul>
+<li><code>predictions/&lt;boltz_run&gt;/&lt;boltz_run&gt;_model_*.cif</code></li>
+<li><code>vina_analysis/&lt;boltz_run&gt;/batch_results.tsv</code></li>
+<li><code>vina_analysis/&lt;boltz_run&gt;/batch_manifest.tsv</code></li>
+<li><code>vina_analysis/&lt;boltz_run&gt;/batch_summary.json</code></li>
+<li><code>vina_analysis/&lt;boltz_run&gt;/&lt;boltz_run&gt;_model_N/receptor.pdb</code></li>
+<li><code>vina_analysis/&lt;boltz_run&gt;/&lt;boltz_run&gt;_model_N/ligand.sdf</code></li>
+</ul>
+<h3>Outputs important for scientific review</h3><table><tr><th>Artifact</th><th>Why a reviewer should care</th></tr>
+<tr><td><code>selected_model.json</code></td><td>Shows which exact structural hypothesis was chosen.</td></tr>
+<tr><td><code>protocol.json</code></td><td>Shows scientific defaults and overrides used for the run.</td></tr>
+<tr><td><code>pose_validation.json</code></td><td>Shows whether selected structure assets agreed.</td></tr>
+<tr><td><code>prep_summary.json</code></td><td>Documents system-construction outputs.</td></tr>
+<tr><td><code>md_summary.json</code></td><td>Documents what MD stages actually ran.</td></tr>
+<tr><td><code>analysis/trajectory/trajectory_summary.json</code></td><td>Provides structural-stability context for the chosen bound state.</td></tr>
+<tr><td><code>analysis/mmgbsa/mmgbsa_summary.json</code></td><td>Primary energetic summary for relative comparison.</td></tr>
+<tr><td><code>run_summary.json</code></td><td>Top-level rollup of the full run.</td></tr>
+</table></div></section>
+
+<section id="limits"><h2>Current scientific limits</h2><div class="card"><ul>
+<li><span class="badge warn">Single-pose</span> Current shipped code processes one selected pose, not a pose ensemble.</li>
+<li><span class="badge warn">Approximate endpoint</span> MM/GBSA is useful but is not equivalent to rigorous free-energy estimation.</li>
+<li><span class="badge warn">Per-case surface</span> The shipped CLI is focused on one case at a time, not a benchmark-governed family-ranking release process.</li>
+<li><span class="badge bad">Tool dependence</span> Protonation, AmberTools preparation, GROMACS, and gmx_MMPBSA all depend on external executables.</li>
+<li><span class="badge bad">Host readiness incomplete</span> On this host, all major scientific executables checked for this page were missing from <code>PATH</code>.</li>
+</ul></div></section>
+
+<section id="deps"><h2>Operational dependencies</h2><div class="card"><p>Current CLI and protocol surfaces explicitly depend on external scientific tools including AmberTools, GROMACS, gmx_MMPBSA, and optional protonation tools. Observed on this host during generation:</p><table><tr><th>Executable</th><th>Status</th></tr><tr><td><code>propka3</code></td><td><span class="badge bad">MISSING</span></td></tr><tr><td><code>pdb2pqr</code></td><td><span class="badge bad">MISSING</span></td></tr><tr><td><code>epik</code></td><td><span class="badge bad">MISSING</span></td></tr><tr><td><code>structconvert</code></td><td><span class="badge bad">MISSING</span></td></tr><tr><td><code>gmx_MMPBSA</code></td><td><span class="badge bad">MISSING</span></td></tr><tr><td><code>mpirun</code></td><td><span class="badge bad">MISSING</span></td></tr><tr><td><code>gmx</code></td><td><span class="badge bad">MISSING</span></td></tr><tr><td><code>pdb4amber</code></td><td><span class="badge bad">MISSING</span></td></tr><tr><td><code>cpptraj</code></td><td><span class="badge bad">MISSING</span></td></tr><tr><td><code>tleap</code></td><td><span class="badge bad">MISSING</span></td></tr><tr><td><code>antechamber</code></td><td><span class="badge bad">MISSING</span></td></tr><tr><td><code>parmchk2</code></td><td><span class="badge bad">MISSING</span></td></tr></table><p><strong>Meaning for signoff:</strong> scientific logic may be present in code, but operational reproducibility on a given machine still depends on verified tool installation and version control.</p></div></section>
+
+<section id="review"><h2>Recommended signoff questions</h2><div class="two"><div class="card"><h3>For the genetics director</h3><ul>
+<li>Is it acceptable that one structural hypothesis is selected before thermodynamic follow-up begins?</li>
+<li>Are the biological decisions you want to support low enough risk for an MM/GBSA-based ranking layer?</li>
+<li>Do you require benchmarked cohort-level confidence before this workflow can influence prioritization?</li>
+</ul></div>
+<div class="card"><h3>For the thermodynamics / molecular engineer</h3><ul>
+<li>Is the current default 20 ns production schedule enough for the ligand/protein regimes you care about?</li>
+<li>Should entropy-off MM/GBSA be allowed as the default reporting surface for your use case?</li>
+<li>Should multi-pose, multi-seed, or replicate averaging be required before signoff?</li>
+<li>Are protonation and parameterization decisions explicit enough for scientific review?</li>
+</ul></div></div></section>
+
+<section id="evidence"><h2>Evidence appendix</h2><div class="card"><p>Most important source files consulted for this audience-focused version:</p><ul><li><code>/home/joethomas/Documents/Github/MDPipeline/MDPIPELINE_SCIENTIST_GUIDE.md</code></li><li><code>/home/joethomas/Documents/Github/MDPipeline/MDPIPELINE_ONE_PAGE_WORKFLOW.md</code></li><li><code>/home/joethomas/Documents/Github/MDPipeline/MDPIPELINE_FLOW_DIAGRAM.md</code></li><li><code>/home/joethomas/Documents/Github/MDPipeline/md_pipeline/cli.py</code></li><li><code>/home/joethomas/Documents/Github/MDPipeline/md_pipeline/protocol.py</code></li><li><code>/home/joethomas/Documents/Github/MDPipeline/md_pipeline/selection.py</code></li><li><code>/home/joethomas/Documents/Github/MDPipeline/md_pipeline/gmx_mmgbsa.py</code></li></ul></div></section>
+</main></div></body></html>

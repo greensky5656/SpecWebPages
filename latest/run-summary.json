@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-04-20 21:13:35 PDT",
+  "material_change": true,
+  "audience_focus": [
+    "genetics PhD director",
+    "chemical/molecular engineer focused on thermodynamics"
+  ],
+  "html_path": "/home/joethomas/Documents/affinity-research/md-pipeline-specification-agent/daily-spec/2026-04-20/specification.html",
+  "markdown_path": "/home/joethomas/Documents/affinity-research/md-pipeline-specification-agent/daily-spec/2026-04-20/specification.md",
+  "latest_html_path": "/home/joethomas/Documents/affinity-research/md-pipeline-specification-agent/latest/specification.html",
+  "latest_markdown_path": "/home/joethomas/Documents/affinity-research/md-pipeline-specification-agent/latest/specification.md",
+  "top_clarifications": [
+    "The page now foregrounds scientific purpose, signoff implications, and thermodynamic interpretation instead of software-first structure.",
+    "Single-pose commitment is now highlighted as the central inherited scientific assumption from selection.py.",
+    "MM/GBSA is framed explicitly as an approximate comparative endpoint rather than a rigorous free-energy authority."
+  ]
+}
