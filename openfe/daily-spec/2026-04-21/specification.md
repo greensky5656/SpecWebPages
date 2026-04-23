@@ -16,6 +16,7 @@
 
 
 
+
 Updated: 2026-04-21 09:03:19 PST
 
 Repository: `/home/joethomas/Documents/Github/OpenFE`
@@ -45,6 +46,7 @@ This review document is grounded in current code, tests, and inspected artifacts
 
 
 
+
 ### What this pipeline is
 OpenFE is a fail-closed WT/MUT mutation-RBFE operator with paired intake, complex/apo mutation legs, aggregation, calibration, QC gating, signed reporting, and release-bundle surfaces.
 
@@ -65,7 +67,9 @@ The appropriate present use is governed mutation-effect evaluation, with signoff
 
 
 
+
 ## 2. The stages of the pipeline from a thermodynamic view
+
 
 
 
@@ -89,6 +93,7 @@ The appropriate present use is governed mutation-effect evaluation, with signoff
 
 
 
+
 ## 3. Supporting documentation
 
 
@@ -103,22 +108,35 @@ The appropriate present use is governed mutation-effect evaluation, with signoff
 
 
 
+
+
+
+
+
+
 ### Core documentation
-- [Mutation RBFE implementation specification](../../docs/mutation_rbfe_implementation_spec.md) — current implementation specification.
-- [Design specification](../../docs/design_specification.md) — architecture, execution modes, and runtime contract.
-- [CLI reference](../../docs/cli_reference.md) — command-by-command CLI behavior.
-- [Runtime artifacts reference](../../docs/runtime_artifacts_reference.md) — output tree, provenance, and fail-closed artifacts.
+- [Mutation RBFE implementation specification](../docs/mutation_rbfe_implementation_spec.md) — current implementation specification.
+- [Requirements](../docs/requirements.md): current intended use, system, input, output, functional, and fail-closed requirements.
+- [Design specification](../docs/design_specification.md) — architecture, execution modes, and runtime contract.
+- [CLI reference](../docs/cli_reference.md) — command-by-command CLI behavior.
+- [Runtime artifacts reference](../docs/runtime_artifacts_reference.md) — output tree, provenance, and fail-closed artifacts.
 
 ### Thermodynamics documentation
-- [Five-stage leg thermodynamic method](../../docs/five_stage_leg_thermodynamic_method.md) — literal thermodynamic method for a real mutation leg.
-- [Pipeline thermodynamic chain](../../docs/pipeline_thermodynamic_chain.md) — whole-pipeline path from complex/apo legs to final mutant affinity.
+- [Five-stage leg thermodynamic method](../docs/five_stage_leg_thermodynamic_method.md) — literal thermodynamic method for a real mutation leg.
+- [Pipeline thermodynamic chain](../docs/pipeline_thermodynamic_chain.md) — whole-pipeline path from complex/apo legs to final mutant affinity.
 
 ### Setup and operations
-- [Setup and install guide](../../docs/setup_install_guide.md) — editable install and production prerequisites.
+- [Setup and install guide](../docs/setup_install_guide.md) — editable install and production prerequisites.
 
 ### Flowchart
-- [Rendered pipeline flowchart](../../docs/pipeline_flowchart.svg) — quick visual workflow view.
-- [Editable flowchart source](../../docs/pipeline_flowchart.md) — Mermaid source for the workflow map.
+- [Rendered pipeline flowchart](../docs/pipeline_flowchart.svg) — quick visual workflow view.
+- [Editable flowchart source](../docs/pipeline_flowchart.md) — Mermaid source for the workflow map.
+
+
+
+
+
+
 
 
 
@@ -133,6 +151,7 @@ The appropriate present use is governed mutation-effect evaluation, with signoff
 
 
 ## 4. Scientific workflow actually implemented
+
 
 1. **Paired intake and model selection**
    - `src/intake/pair_builder.py` locates one WT run and one MUT run, parses run YAML, confirms binder identity, computes ligand chemistry hashes, selects paired structural models, and writes `manifests/paired_manifest.json`.
@@ -153,7 +172,9 @@ The appropriate present use is governed mutation-effect evaluation, with signoff
 6. **Release companion surfaces**
    - `src/release/bundle.py` packages schemas plus the current implementation/design/setup/CLI/runtime-artifact/flowchart document set into the release bundle payload.
 
+
 ## 5. What scientific reviewers should separate
+
 
 
 
@@ -171,7 +192,9 @@ Ad hoc summaries, validation memos, and analyst-side readings that are not the c
 
 
 
+
 ## 6. Current scientific and operational limits
+
 
 
 
@@ -189,7 +212,9 @@ This pipeline is the strongest thermodynamic architecture in the set for mutatio
 
 
 
+
 ## 7. Recommended signoff questions
+
 
 
 
@@ -207,7 +232,9 @@ Should dual-site support remain visible in the production-facing surface now, or
 
 
 
+
 ## 8. Top current clarifications
+
 
 
 
@@ -236,7 +263,9 @@ Should dual-site support remain visible in the production-facing surface now, or
 
 
 
+
 ## 9. Actual shipped operator surface
+
 
 
 
@@ -272,7 +301,9 @@ Should dual-site support remain visible in the production-facing surface now, or
 
 
 
+
 ## 10. Evidence appendix
+
 
 
 

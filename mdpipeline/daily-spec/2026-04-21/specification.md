@@ -16,6 +16,7 @@
 
 
 
+
 Updated: 2026-04-21 09:03:47 PST
 
 Repository: `/home/joethomas/Documents/Github/MDPipeline`
@@ -44,6 +45,7 @@ This review document is grounded in current code, tests, and inspected artifacts
 
 
 
+
 ### What this pipeline is
 MDPipeline is a single-case, single-pose downstream MD + endpoint MM/GBSA workflow built on one selected Boltz/Vina pose and one prepared Amber/OpenMM system.
 
@@ -63,7 +65,9 @@ The appropriate present use is triage/ranking support, not stand-alone formal fr
 
 
 
+
 ## 2. The stages of the pipeline from a thermodynamic view
+
 
 
 
@@ -76,6 +80,7 @@ The appropriate present use is triage/ranking support, not stand-alone formal fr
 - **Stage 3 — Bound-state relaxation and endpoint readout:** restrained minimization, equilibration, and production OpenMM MD sample local fluctuations around that selected bound state, then MM/GBSA reads out an endpoint free-energy approximation over the sampled trajectory window.
 - **Stage 4 — Ranking interpretation:** the resulting quantity is used as a comparative ranking proxy within related cases, not as a formal alchemical ΔΔG or a fully population-weighted thermodynamic estimate.
 - **Thermodynamic boundary:** no apo leg, no explicit mutation cycle, no pose-population integration, and no replica-derived uncertainty are part of the present shipped contract.
+
 
 
 
@@ -97,22 +102,35 @@ The appropriate present use is triage/ranking support, not stand-alone formal fr
 
 
 
+
+
+
+
+
+
 ### Core documentation
-- [Implementation specification](../../docs/mdpipeline_implementation_spec.md) — current workflow contract and scientific assumptions.
-- [Design specification](../../docs/design_specification.md) — implemented architecture and runtime constraints.
-- [CLI reference](../../docs/cli_reference.md) — commands, defaults, and operator-facing arguments.
-- [Runtime artifacts reference](../../docs/runtime_artifacts_reference.md) — output tree and stage artifacts.
+- [Implementation specification](../docs/mdpipeline_implementation_spec.md) — current workflow contract and scientific assumptions.
+- [Requirements](../docs/requirements.md): current intended use, system, input, output, functional, and fail-closed requirements.
+- [Design specification](../docs/design_specification.md) — implemented architecture and runtime constraints.
+- [CLI reference](../docs/cli_reference.md) — commands, defaults, and operator-facing arguments.
+- [Runtime artifacts reference](../docs/runtime_artifacts_reference.md) — output tree and stage artifacts.
 
 ### Scientist-oriented documentation
-- [Scientist guide](../../docs/scientist_guide.md) — scientific interpretation, defaults, and caveats.
-- [One-page workflow](../../docs/one_page_workflow.md) — concise end-to-end workflow summary.
+- [Scientist guide](../docs/scientist_guide.md) — scientific interpretation, defaults, and caveats.
+- [One-page workflow](../docs/one_page_workflow.md) — concise end-to-end workflow summary.
 
 ### Setup and operations
-- [Setup and install guide](../../docs/setup_install_guide.md) — external tool requirements and OpenMM preflight.
+- [Setup and install guide](../docs/setup_install_guide.md) — external tool requirements and OpenMM preflight.
 
 ### Flowchart
-- [Rendered pipeline flowchart](../../docs/pipeline_flowchart.svg) — quick visual workflow view.
-- [Editable flowchart source](../../docs/pipeline_flowchart.md) — Mermaid source for the workflow map.
+- [Rendered pipeline flowchart](../docs/pipeline_flowchart.svg) — quick visual workflow view.
+- [Editable flowchart source](../docs/pipeline_flowchart.md) — Mermaid source for the workflow map.
+
+
+
+
+
+
 
 
 
@@ -127,6 +145,7 @@ The appropriate present use is triage/ranking support, not stand-alone formal fr
 
 
 ## 4. Scientific workflow actually implemented
+
 
 
 
@@ -182,7 +201,9 @@ The appropriate present use is triage/ranking support, not stand-alone formal fr
 
 
 
+
 ## 5. What scientific reviewers should separate
+
 
 
 ### Native evidence
@@ -198,7 +219,9 @@ One-off reports, repository-root notes, and exploratory markdown analyses are de
 Intended future benchmark engines, campaign-management ideas, protonation- ensemble aspirations, and publication-ready free-energy claims are not current authoritative surfaces. Upstream selection-score logic is also distinct from downstream MD/MM/GBSA evidence; downstream physics does not retroactively make pose selection exhaustive.
 
 
+
 ## 6. Current scientific and operational limits
+
 
 
 ### Scientific limits
@@ -214,7 +237,9 @@ Major repository docs still describe older workflow assumptions and do not fully
 This pipeline is suitable for governed comparative ranking support when one plausible pose is already accepted, but it should not be signed off as a rigorous ensemble thermodynamics or benchmark-ready campaign engine.
 
 
+
 ## 7. Recommended signoff questions
+
 
 
 ### Scientific validity question
@@ -230,7 +255,9 @@ Should the current code-and-test-backed 20 ns / 2–20 ns / protonation-enabled 
 Is the present fail-fast, single-pose workflow ready for governed deployment as a ranking-support tool, or should multi-pose / multi-replica escalation be required before broader signoff?
 
 
+
 ## 8. Top current clarifications
+
 
 
 
@@ -257,7 +284,9 @@ Is the present fail-fast, single-pose workflow ready for governed deployment as 
 
 
 
+
 ## 9. Actual shipped operator surface
+
 
 
 
@@ -322,7 +351,9 @@ Is the present fail-fast, single-pose workflow ready for governed deployment as 
 
 
 
+
 ## 10. Evidence appendix
+
 
 
 

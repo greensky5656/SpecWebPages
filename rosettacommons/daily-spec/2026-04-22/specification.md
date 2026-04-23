@@ -12,6 +12,7 @@
 
 
 
+
 Updated: 2026-04-22 17:56 PST
 
 Repository: `/media/joethomas/Backup1/Github/RosettaCommons`
@@ -40,6 +41,7 @@ This review document is grounded in current code, tests, inspected artifacts, an
 
 
 
+
 ### What this pipeline is
 RosettaCommons is a deterministic, fail-closed paired mutation-effect rescoring and calibration workflow built from qualified Boltz outputs, authoritative ligand chemistry, Rosetta rescoring branches, paired delta features, and gated reporting modes.
 
@@ -59,7 +61,9 @@ The appropriate present use is controlled mutation-effect decision support with 
 
 
 
+
 ## 2. The stages of the pipeline from a thermodynamic view
+
 
 
 
@@ -73,6 +77,7 @@ The appropriate present use is controlled mutation-effect decision support with 
 - **Stage 4 — Paired delta construction:** branch summaries are aggregated into paired delta features that represent mutation-effect evidence rather than direct experimental affinity values.
 - **Stage 5 — Calibrated reporting gate:** only after domain checks, bundle approval, and QC pass does the pipeline translate those paired features into the calibrated mutation-effect reporting surface.
 - **Thermodynamic boundary:** raw Rosetta terms are not binding free energies; the shipped workflow is a paired mutation-effect rescoring and calibration architecture rather than endpoint MM/GBSA or alchemical FEP.
+
 
 
 
@@ -94,8 +99,15 @@ The appropriate present use is controlled mutation-effect decision support with 
 
 
 
+
+
+
+
+
+
 ### Core documentation
 - [Affinity pipeline implementation specification](../docs/affinity_pipeline_implementation_spec.md) — implementation-scoped specification for the current Boltz-to-Rosetta pipeline.
+- [Requirements](../docs/requirements.md): current intended use, system, input, output, functional, and fail-closed requirements.
 - [Design specification](../docs/design_specification.md) — architecture, runtime modes, fail-closed boundaries, and component responsibilities.
 - [CLI reference](../docs/cli_reference.md) — command-by-command usage, arguments, outputs, and guardrails.
 - [Runtime and artifacts reference](../docs/runtime_artifacts_reference.md) — case and pair directory structure, Rosetta outputs, reports, and audit artifacts.
@@ -124,7 +136,14 @@ The appropriate present use is controlled mutation-effect decision support with 
 
 
 
+
+
+
+
+
+
 ## 4. Scientific workflow actually implemented
+
 
 
 
@@ -173,7 +192,9 @@ The appropriate present use is controlled mutation-effect decision support with 
 
 
 
+
 ## 5. What scientific reviewers should separate
+
 
 
 ### Native evidence
@@ -189,7 +210,9 @@ Planning documents, regulatory-adjacent documents, and analyst-side summaries ou
 Raw Rosetta terms are not by themselves reportable thermodynamic conclusions. Research-mode evidence and regulated-mode calibrated reporting are distinct layers and should not be collapsed. Governance/planning document breadth does not itself establish runtime scientific authority.
 
 
+
 ## 6. Current scientific and operational limits
+
 
 
 ### Scientific limits
@@ -205,7 +228,9 @@ The repository contains many planning and governance documents, but those do not
 This pipeline is suitable for governed mutation-effect rescoring and gated calibrated reporting, but it should not be signed off as if Rosetta terms alone constituted validated thermodynamic ground truth.
 
 
+
 ## 7. Recommended signoff questions
+
 
 
 ### Scientific validity question
@@ -221,7 +246,9 @@ What evidence threshold is required before calibrated pair outputs are treated a
 Is the current deterministic paired rescoring-and-calibration workflow ready for governed mutation-effect deployment now, or does signoff require stronger runtime evidence before regulated numeric output is trusted?
 
 
+
 ## 8. Top current clarifications
+
 
 
 
@@ -243,7 +270,9 @@ Is the current deterministic paired rescoring-and-calibration workflow ready for
 
 
 
+
 ## 9. Actual shipped operator surface
+
 
 
 
@@ -288,7 +317,9 @@ Is the current deterministic paired rescoring-and-calibration workflow ready for
 
 
 
+
 ## 10. Evidence appendix
+
 
 
 

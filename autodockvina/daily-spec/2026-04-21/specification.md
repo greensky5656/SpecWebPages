@@ -16,6 +16,7 @@
 
 
 
+
 This review document is grounded in current code, tests, and inspected artifacts, with targeted regression checks confirming that the reviewed docking and preflight surfaces remain stable.
 
 - Last commit inspected: `2026-03-12 15:35:03 -0700` — `updated vina numbers and switched to .json`
@@ -45,6 +46,7 @@ This review document is grounded in current code, tests, and inspected artifacts
 
 
 
+
 ### What this pipeline is
 autodockvina is a strict Boltz-to-Meeko-to-AutoDock Vina docking workflow with a maintained minimized/cofactor-aware path, engineered docking features, and an optional classical calibration layer.
 
@@ -65,7 +67,9 @@ The appropriate present use is governed docking/scoring prioritization, not stan
 
 
 
+
 ## 2. The stages of the pipeline from a thermodynamic view
+
 
 
 
@@ -79,6 +83,7 @@ The appropriate present use is governed docking/scoring prioritization, not stan
 - **Stage 3 — Feature construction:** raw docking outputs are converted into engineered scoring features, summaries, and comparison tables.
 - **Stage 4 — Statistical affinity mapping:** when the learned calibration layer is used, docking-derived features are mapped onto an experimental affinity scale by regression rather than by direct thermodynamic calculation.
 - **Thermodynamic boundary:** neither the raw Vina scores nor the calibrated outputs should be interpreted as explicit free-energy simulations; this remains a docking-and-calibration evidence class.
+
 
 
 
@@ -101,10 +106,30 @@ The appropriate present use is governed docking/scoring prioritization, not stan
 
 
 
+
+
+
+
+
+
 ### Core documentation
-- [README](../../docs/README.md) — current setup, environment, and main run surfaces.
-- [PIPELINE_SPEC](../../docs/PIPELINE_SPEC.md) — authoritative workflow specification for the repo.
-- [Boltz minimized Vina specification](../../docs/boltz_run_minimized_vina_spec.md) — minimized Boltz→Meeko→Vina operator specification.
+- [AutoDock Vina RMSD implementation specification](../docs/autodockvina_rmsd_implementation_spec.md) — refreshed specification entrypoint for the current implementation.
+- [Requirements](../docs/requirements.md): current intended use, system, input, output, functional, and fail-closed requirements.
+- [Design specification](../docs/design_specification.md) — implemented architecture, execution styles, validation rules, and runtime assumptions.
+- [CLI reference](../docs/cli_reference.md) — command-by-command usage, arguments, outputs, and failure behavior.
+- [Runtime and artifacts reference](../docs/runtime_artifacts_reference.md) — output directory structure, important files, and artifact meanings.
+
+### Thermodynamics and scoring documentation
+- [Per-model docking and minimization method](../docs/per_model_docking_and_minimization_method.md) — literal per-CIF preparation, score-only, and docking method.
+- [Pipeline scoring and calibration chain](../docs/pipeline_scoring_and_calibration_chain.md) — whole data chain from docking summaries to calibrated `dg_predictions`.
+
+### Setup and operations
+- [Setup and install guide](../docs/setup_install_guide.md) — micromamba environment setup, tool prerequisites, quick starts, and verification checks.
+- [README](../docs/README.md) — high-level repository front door and current maintained documentation map.
+
+### Flowchart
+- [Rendered pipeline flowchart](../docs/pipeline_flowchart.svg) — quick visual workflow view.
+- [Editable flowchart source](../docs/pipeline_flowchart.md) — Mermaid source for the workflow map.
 
 ### Operator entrypoints
 - Main run surfaces remain `scripts/run_selected_boltz_runs.sh` and `scripts/score_boltz_run_minimized.py`.
@@ -122,7 +147,14 @@ The appropriate present use is governed docking/scoring prioritization, not stan
 
 
 
+
+
+
+
+
+
 ## 4. Scientific workflow actually implemented
+
 
 ### A. Ligand and receptor extraction from Boltz outputs
 
@@ -213,7 +245,9 @@ Models are saved to disk with manifest and per-model metadata, including **train
 
 This ABFE path requires already-prepared AMBER `prmtop`/`inpcrd` files and is not used by the mainline Meeko→Vina operators.
 
+
 ## 5. What scientific reviewers should separate
+
 
 
 
@@ -231,7 +265,9 @@ Raw Vina scores are not calibrated free energies. Calibrated regression outputs 
 
 
 
+
 ## 6. Current scientific and operational limits
+
 
 
 
@@ -249,7 +285,9 @@ This repository is appropriate for governed docking-based triage and feature gen
 
 
 
+
 ## 7. Recommended signoff questions
+
 
 
 
@@ -267,7 +305,9 @@ Should the repository be signed off only as a governed docking/triage tool, with
 
 
 
+
 ## 8. Top current clarifications
+
 
 
 
@@ -296,7 +336,9 @@ Should the repository be signed off only as a governed docking/triage tool, with
 
 
 
+
 ## 9. Actual shipped operator surface
+
 
 
 
@@ -391,7 +433,9 @@ Implemented downstream modules are:
 
 
 
+
 ## 10. Evidence appendix
+
 
 
 

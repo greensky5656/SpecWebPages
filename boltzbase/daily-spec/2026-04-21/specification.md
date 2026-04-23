@@ -15,6 +15,7 @@
 
 
 
+
 This review document is grounded in current code, tests, inspected artifacts, and maintained repository documentation where that documentation matches the shipped platform surface.
 
 ## Table of contents
@@ -31,6 +32,7 @@ This review document is grounded in current code, tests, inspected artifacts, an
 10. [Evidence appendix](#10-evidence-appendix)
 
 ## 1. Executive summary
+
 
 
 
@@ -58,7 +60,9 @@ The appropriate present use is governed screening and model-based affinity signa
 
 
 
+
 ## 2. The stages of the pipeline from a thermodynamic view
+
 
 
 
@@ -71,6 +75,7 @@ The appropriate present use is governed screening and model-based affinity signa
 - **Stage 3 — Writer-level semantic conversion:** native affinity quantities are exposed in model-output units and convenience conversions such as IC50 and approximate pKd / ΔG representations.
 - **Stage 4 — Platform surfacing and downstream views:** CLI and Affinitas UI layers package those learned outputs into run directories, queue records, analytics, and optional downstream analyses such as RMSD/TM-score/Vina views.
 - **Thermodynamic boundary:** the pipeline is a learned structure-plus-affinity inference system, not RBFE, not MM/GBSA, and not an explicit molecular thermodynamics engine.
+
 
 
 
@@ -91,13 +96,37 @@ The appropriate present use is governed screening and model-based affinity signa
 
 
 
-### Native backend documentation
-- [boltz-main README](../../docs/boltz_main_README.md) — native backend entrypoint for CLI, affinity semantics, and installation.
-- [Prediction documentation](../../docs/prediction.md) — input and prediction behavior for native inference.
-- [Evaluation documentation](../../docs/evaluation.md) — evaluation-side documentation, to be kept separate from the installed product surface.
 
-### Interface boundary
-- [Affinitas webapp README](../../docs/affinitas_webapp_README.md) — web application front door, not the native backend authority for scientific interpretation.
+
+
+
+
+
+### Core documentation
+- [Boltzbase platform implementation specification](../docs/boltzbase_platform_implementation_spec.md) — current implemented platform scope, runtime boundaries, and major subsystems.
+- [Requirements](../docs/requirements.md): current intended use, system, input, output, functional, and fail-closed requirements.
+- [Design specification](../docs/design_specification.md) — architecture, queue model, execution flow, storage, and operational invariants.
+- [CLI reference](../docs/cli_reference.md) — `boltz predict` usage, important options, and examples.
+- [Web API reference](../docs/web_api_reference.md) — main Next.js API routes for run submission, queue inspection, analytics, and downloads.
+- [Runtime and artifacts reference](../docs/runtime_artifacts_reference.md) — run directory structure, generated files, logs, database state, and exported CSV outputs.
+
+### Model and evaluation documentation
+- [Prediction guide](../docs/prediction.md) — detailed Boltz input schema, constraints, affinity properties, and model outputs.
+- [Training guide](../docs/training.md) — current training and preprocessing notes.
+- [Evaluation guide](../docs/evaluation.md) — benchmark and evaluation notes.
+
+### Setup and operations
+- [Setup and install guide](../docs/setup_install_guide.md) — Python environment, editable install, UI bootstrap, and local development setup.
+
+### Flowchart
+- [Rendered pipeline flowchart](../docs/pipeline_flowchart.svg) — quick visual workflow view.
+- [Editable flowchart source](../docs/pipeline_flowchart.md) — Mermaid source for the end-to-end platform map.
+
+
+
+
+
+
 
 
 
@@ -111,6 +140,7 @@ The appropriate present use is governed screening and model-based affinity signa
 
 
 ## 4. Scientific workflow actually implemented
+
 
 
 
@@ -235,7 +265,9 @@ That correction is a learned calibration-like post-adjustment inside code, not a
 
 
 
+
 ## 5. What scientific reviewers should separate
+
 
 
 ### Native evidence
@@ -251,7 +283,9 @@ Writer-level convenience conversions such as IC50 in alternate units, approximat
 The broader repository contains multiple layers (CLI, UI, eval scripts, post-processing helpers), but they should not be collapsed into one authority class. Native prediction outputs, writer transforms, and detached evaluation scripts should not be spoken about as though they all carry the same scientific weight.
 
 
+
 ## 6. Current scientific and operational limits
+
 
 
 ### Scientific limits
@@ -267,7 +301,9 @@ Test coverage is targeted and narrow rather than broad end-to-end runtime valida
 BoltzBase is strong as a native structure-plus-affinity inference platform for governed screening/triage, but it should not be signed off as a general thermodynamic authority or as if its detached evaluation scripts were part of the same validated product surface.
 
 
+
 ## 7. Recommended signoff questions
+
 
 
 ### Scientific validity question
@@ -283,7 +319,9 @@ Should additional raw affinity diagnostics or MW-correction metadata be promoted
 Should BoltzBase be approved as a governed native inference platform for screening/triage only, while detached evaluation scripts remain outside the approved product evidence surface?
 
 
+
 ## 8. Top current clarifications
+
 
 
 
@@ -310,7 +348,9 @@ Should BoltzBase be approved as a governed native inference platform for screeni
 
 
 
+
 ## 9. Actual shipped operator surface
+
 
 
 
@@ -372,7 +412,9 @@ The repo-level evaluation scripts in `scripts/eval/` are not wired into the inst
 
 
 
+
 ## 10. Evidence appendix
+
 
 
 
