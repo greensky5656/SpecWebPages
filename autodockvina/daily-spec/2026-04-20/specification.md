@@ -1,6 +1,6 @@
 # autodockvina Specification
 
-Updated: 2026-04-20 21:13:35 PDT
+Updated: 2026-04-20 21:13:35 PST
 
 Codebase-grounded scientific review of the current autodockvina execution path: Boltz-CIF parsing, Meeko/Vina scoring, feature engineering, calibration-model training, prediction, and optional ABFE pilot surfaces.
 

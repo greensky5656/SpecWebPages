@@ -1,6 +1,6 @@
 # MDPipeline Specification
 
-Updated: 2026-04-20 21:13:35 PDT
+Updated: 2026-04-20 21:13:35 PST
 
 Codebase-grounded scientific review of the actual current shipped MDPipeline surfaces: CLI, one-pose selection policy, preparation/protonation/tooling layers, OpenMM MD, MM/GBSA analysis, output contract, and major scientific limitations.
 

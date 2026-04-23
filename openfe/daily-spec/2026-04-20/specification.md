@@ -1,8 +1,8 @@
-# OpenFE pmx/GROMACS Mutation RBFE Specification
+# pmx/GROMACS Mutation RBFE Pipeline Specification
 
-Updated: 2026-04-20 21:13:35 PDT
+Updated: 2026-04-20 21:13:35 PST
 
-Codebase-grounded scientific review of the currently shipped OpenFE pmx/GROMACS mutation-RBFE pipeline surfaces: CLI, orchestration, fail-closed gating, runtime/reporting layers, true pmx/GROMACS compute lane, and major scientific limitations.
+Codebase-grounded scientific review of the currently shipped full pmx/GROMACS mutation-RBFE pipeline surface: CLI, orchestration, fail-closed gating, runtime/reporting layers, the true pmx/GROMACS compute lane, and major scientific limitations.
 
 Repository: `/home/joethomas/Documents/Github/OpenFE`
 

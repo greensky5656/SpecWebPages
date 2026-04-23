@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820">
+<rect width="1200" height="820" fill="#0f172a"/>
+<style>
+  .box { fill: #111827; stroke: #60a5fa; stroke-width: 2; rx: 14; ry: 14; }
+  .decision { fill: #1f2937; stroke: #f59e0b; stroke-width: 2; }
+  .text { fill: #e5e7eb; font-family: Arial, Helvetica, sans-serif; font-size: 20px; text-anchor: middle; }
+  .small { fill: #cbd5e1; font-family: Arial, Helvetica, sans-serif; font-size: 17px; text-anchor: middle; }
+  .title { fill: #f8fafc; font-family: Arial, Helvetica, sans-serif; font-size: 30px; font-weight: bold; text-anchor: middle; }
+  .line { stroke: #94a3b8; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+</style>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,6 L9,3 z" fill="#94a3b8"/>
+  </marker>
+</defs>
+
+<text x="600" y="42" class="title">Boltzbase Platform Flow</text>
+
+<rect x="60" y="80" width="250" height="90" class="box"/>
+<text x="185" y="116" class="text">User Input</text>
+<text x="185" y="145" class="small">CLI file, UI YAML, or batch job</text>
+
+<rect x="400" y="80" width="180" height="90" class="decision"/>
+<text x="490" y="118" class="text">Entry Surface</text>
+<text x="490" y="147" class="small">CLI or web UI</text>
+
+<rect x="700" y="40" width="220" height="90" class="box"/>
+<text x="810" y="76" class="text">CLI Path</text>
+<text x="810" y="105" class="small">boltz predict</text>
+
+<rect x="700" y="150" width="220" height="100" class="box"/>
+<text x="810" y="188" class="text">Web API Path</text>
+<text x="810" y="217" class="small">write YAML, queue run,</text>
+<text x="810" y="239" class="small">spawn python runtime</text>
+
+<rect x="980" y="150" width="170" height="100" class="box"/>
+<text x="1065" y="188" class="text">SQLite Queue</text>
+<text x="1065" y="217" class="small">queued</text>
+<text x="1065" y="239" class="small">running/completed/failed</text>
+
+<rect x="420" y="280" width="320" height="100" class="box"/>
+<text x="580" y="318" class="text">Preprocess Inputs</text>
+<text x="580" y="347" class="small">manifest, MSA, structures,</text>
+<text x="580" y="369" class="small">constraints, templates, mols</text>
+
+<rect x="420" y="420" width="320" height="90" class="box"/>
+<text x="580" y="456" class="text">Structure Prediction</text>
+<text x="580" y="485" class="small">Boltz-1 or Boltz-2</text>
+
+<rect x="450" y="560" width="260" height="90" class="decision"/>
+<text x="580" y="596" class="text">Affinity Requested?</text>
+<text x="580" y="625" class="small">Boltz-2 only</text>
+
+<rect x="170" y="700" width="260" height="90" class="box"/>
+<text x="300" y="736" class="text">Write Outputs</text>
+<text x="300" y="765" class="small">predictions, confidence, affinity</text>
+
+<rect x="500" y="700" width="260" height="90" class="box"/>
+<text x="630" y="736" class="text">Web Post-Processing</text>
+<text x="630" y="765" class="small">CIF, RMSD, TM-score, Vina</text>
+
+<rect x="830" y="700" width="270" height="90" class="box"/>
+<text x="965" y="736" class="text">Expose Results</text>
+<text x="965" y="765" class="small">viewer, downloads, runhistory.csv</text>
+
+<path d="M310 125 L400 125" class="line"/>
+<path d="M580 125 L700 85" class="line"/>
+<path d="M580 125 L700 200" class="line"/>
+<path d="M920 200 L980 200" class="line"/>
+<path d="M810 130 L810 150" class="line"/>
+<path d="M810 250 L640 280" class="line"/>
+<path d="M810 130 L640 280" class="line"/>
+<path d="M580 380 L580 420" class="line"/>
+<path d="M580 510 L580 560" class="line"/>
+<path d="M450 605 L300 700" class="line"/>
+<path d="M710 605 L630 700" class="line"/>
+<path d="M430 745 L500 745" class="line"/>
+<path d="M760 745 L830 745" class="line"/>
+</svg>

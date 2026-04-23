@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Design Option 1 — FDA Briefing Binder</title>
+<style>
+:root { --ink:#18324a; --ink-soft:#4f667a; --line:#cfd8e3; --bg:#f4f6f8; --panel:#ffffff; --accent:#305f8c; --accent-2:#e9eff5; --success:#3f6a5a; }
+* { box-sizing:border-box; }
+body { margin:0; font:16px/1.55 "Source Sans 3", Arial, sans-serif; color:var(--ink); background:var(--bg); }
+a { color:var(--accent); text-decoration:none; }
+.wrap { max-width:1200px; margin:0 auto; padding:24px; }
+header { background:var(--panel); border:1px solid var(--line); padding:28px 32px; }
+.header-kicker { font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; }
+h1 { margin:8px 0 12px; font-size:38px; line-height:1.1; }
+header p { max-width:820px; margin:0; color:var(--ink-soft); font-size:18px; }
+.notice { margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
+.notice span { border:1px solid var(--line); background:var(--accent-2); padding:6px 10px; font-size:13px; color:var(--ink); }
+main { margin-top:22px; }
+.section-title { display:flex; justify-content:space-between; align-items:end; border-bottom:2px solid var(--ink); padding-bottom:10px; margin-bottom:16px; }
+.section-title h2 { margin:0; font-size:24px; }
+.section-title span { color:var(--ink-soft); font-size:14px; }
+.grid { display:grid; grid-template-columns:1fr; gap:16px; }
+.card { background:var(--panel); border:1px solid var(--line); padding:20px 22px; }
+.card-head { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
+.card h3 { margin:0; font-size:24px; line-height:1.25; }
+.status { border:1px solid #b5c2cf; padding:6px 10px; font-size:12px; font-weight:700; white-space:nowrap; color:var(--success); background:#f6fbf8; }
+.summary { margin:12px 0 16px; color:var(--ink-soft); max-width:900px; }
+.meta { display:grid; grid-template-columns:180px 1fr; gap:8px 12px; margin:0; }
+.meta dt { font-weight:700; }
+.meta dd { margin:0; color:#31495f; }
+.actions { margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; }
+.actions a { border:1px solid var(--ink); padding:10px 14px; font-weight:700; color:var(--ink); background:#fff; }
+footer { margin-top:28px; color:var(--ink-soft); font-size:14px; }
+@media (max-width: 760px) { .meta { grid-template-columns:1fr; } .card-head { flex-direction:column; } h1 { font-size:32px; } }
+</style>
+</head>
+<body>
+  <div class='wrap'>
+    <header>
+      <div class='header-kicker'>Design option 1</div>
+      <h1>FDA briefing binder</h1>
+      <p>A restrained light theme designed for scientific and clinical review. It feels like an institutional briefing packet: conservative typography, clear section rules, minimal color, and no decorative gradients.</p>
+      <div class='notice'>
+        <span>Best for: formal review meetings</span>
+        <span>Visual tone: regulatory / institutional</span>
+        <span>Strength: high seriousness, low visual noise</span>
+      </div>
+    </header>
+    <main>
+      <div class='section-title'>
+        <h2>How the landing page would look</h2>
+        <span>Single-column, review-first layout</span>
+      </div>
+      <section class='grid'>
+        
+      <article class='card'>
+        <div class='card-head'>
+          <h3>MDPipeline Specification</h3>
+          <span class='status'>Active review artifact</span>
+        </div>
+        <p class='summary'>Codebase-grounded scientific review page for MDPipeline.</p>
+        <dl class='meta'>
+          <dt>Primary audience</dt><dd>Genetics director, thermodynamics engineers, chemical / molecular engineers</dd>
+          <dt>Scientific role</dt><dd>Single-pose downstream MD + MM/GBSA workflow for comparative ranking support</dd>
+          <dt>Format</dt><dd>HTML webpage, Markdown companion, run-summary JSON</dd>
+        </dl>
+        <div class='actions'>
+          <a href='../mdpipeline/latest/specification.html'>Production page</a>
+          <a href='specification.html'>Design preview</a>
+        </div>
+      </article>
+    
+
+      <article class='card'>
+        <div class='card-head'>
+          <h3>OpenFE pmx/GROMACS Mutation RBFE Specification</h3>
+          <span class='status'>Active review artifact</span>
+        </div>
+        <p class='summary'>Codebase-grounded scientific review page for the OpenFE pmx/GROMACS mutation-RBFE pipeline.</p>
+        <dl class='meta'>
+          <dt>Primary audience</dt><dd>Genetics director, mutation-effect reviewers, thermodynamics engineers</dd>
+          <dt>Scientific role</dt><dd>Fail-closed pmx/GROMACS WT/MUT mutation-RBFE orchestration with QC, reporting, and release surfaces</dd>
+          <dt>Format</dt><dd>HTML webpage, Markdown companion, run-summary JSON</dd>
+        </dl>
+        <div class='actions'>
+          <a href='../openfe/latest/specification.html'>Production page</a>
+          <a href='specification.html'>Design preview</a>
+        </div>
+      </article>
+    
+
+      <article class='card'>
+        <div class='card-head'>
+          <h3>autodockvina Specification</h3>
+          <span class='status'>Active review artifact</span>
+        </div>
+        <p class='summary'>Codebase-grounded scientific review page for the Boltz → Meeko → AutoDock Vina workflow.</p>
+        <dl class='meta'>
+          <dt>Primary audience</dt><dd>Genetics director, docking/calibration reviewers, thermodynamics engineers</dd>
+          <dt>Scientific role</dt><dd>Docking, feature engineering, learned calibration, and optional ABFE pilot surfaces</dd>
+          <dt>Format</dt><dd>HTML webpage, Markdown companion, run-summary JSON</dd>
+        </dl>
+        <div class='actions'>
+          <a href='../autodockvina/latest/specification.html'>Production page</a>
+          <a href='specification.html'>Design preview</a>
+        </div>
+      </article>
+    
+
+      <article class='card'>
+        <div class='card-head'>
+          <h3>boltzbase Specification</h3>
+          <span class='status'>Active review artifact</span>
+        </div>
+        <p class='summary'>Codebase-grounded scientific review page for boltzbase / Boltz affinity-prediction surfaces.</p>
+        <dl class='meta'>
+          <dt>Primary audience</dt><dd>Genetics director, screening reviewers, thermodynamics engineers</dd>
+          <dt>Scientific role</dt><dd>Native structure + affinity model output surfaces with separate non-productized evaluation scripts</dd>
+          <dt>Format</dt><dd>HTML webpage, Markdown companion, run-summary JSON</dd>
+        </dl>
+        <div class='actions'>
+          <a href='../boltzbase/latest/specification.html'>Production page</a>
+          <a href='specification.html'>Design preview</a>
+        </div>
+      </article>
+    
+      </section>
+    </main>
+    <footer>This prototype shows a design system only. Production content and links remain unchanged.</footer>
+  </div>
+</body>
+</html>

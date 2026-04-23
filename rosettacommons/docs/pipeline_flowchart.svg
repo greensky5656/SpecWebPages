@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="780" viewBox="0 0 980 780" role="img" aria-labelledby="title desc">
+  <title id="title">Affinity Pipeline Flowchart</title>
+  <desc id="desc">Flowchart showing manifest intake, ingest, ligand preparation, Rosetta execution, aggregation, gating, and report writing.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="980" height="780" fill="#f8fafc"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#0f172a">
+    <text x="490" y="34" text-anchor="middle" font-size="24" font-weight="700">Affinity Pipeline</text>
+    <text x="490" y="58" text-anchor="middle" font-size="13">Boltz intake to Rosetta rescoring to paired mutation-effect reporting</text>
+
+    <g stroke="#334155" stroke-width="2" fill="#e2e8f0">
+      <rect x="330" y="90" width="320" height="52" rx="10"/>
+      <rect x="330" y="166" width="320" height="52" rx="10"/>
+      <rect x="330" y="242" width="320" height="52" rx="10"/>
+      <rect x="330" y="318" width="320" height="52" rx="10"/>
+      <rect x="130" y="404" width="290" height="60" rx="10"/>
+      <rect x="560" y="404" width="290" height="60" rx="10"/>
+      <rect x="330" y="498" width="320" height="60" rx="10"/>
+      <rect x="330" y="592" width="320" height="60" rx="10"/>
+      <rect x="330" y="686" width="320" height="60" rx="10"/>
+    </g>
+
+    <g font-size="16" font-weight="600">
+      <text x="490" y="122" text-anchor="middle">Run Manifest Or Pair Run Manifest</text>
+      <text x="490" y="198" text-anchor="middle">Mode And Environment Gate</text>
+      <text x="490" y="274" text-anchor="middle">Ingest Boltz Cases And Select Top Samples</text>
+      <text x="490" y="350" text-anchor="middle">Cross-Format Check And Ligand Preparation</text>
+      <text x="275" y="438" text-anchor="middle">Run Rosetta</text>
+      <text x="275" y="458" text-anchor="middle">Score-Only Per Pose</text>
+      <text x="705" y="438" text-anchor="middle">Run Rosetta</text>
+      <text x="705" y="458" text-anchor="middle">Local-Refine Replicates</text>
+      <text x="490" y="533" text-anchor="middle">Summarize Per-Pose And Cross-Pose Outputs</text>
+      <text x="490" y="627" text-anchor="middle">Build Branch And Pair Delta Features</text>
+      <text x="490" y="721" text-anchor="middle">Apply Domain, Calibration, QC, And Write Reports</text>
+    </g>
+
+    <g stroke="#334155" stroke-width="3" fill="none" marker-end="url(#arrow)">
+      <line x1="490" y1="142" x2="490" y2="166"/>
+      <line x1="490" y1="218" x2="490" y2="242"/>
+      <line x1="490" y1="294" x2="490" y2="318"/>
+      <line x1="490" y1="370" x2="490" y2="392"/>
+      <line x1="490" y1="392" x2="275" y2="392"/>
+      <line x1="275" y1="392" x2="275" y2="404"/>
+      <line x1="490" y1="392" x2="705" y2="392"/>
+      <line x1="705" y1="392" x2="705" y2="404"/>
+      <line x1="275" y1="464" x2="275" y2="480"/>
+      <line x1="275" y1="480" x2="490" y2="480"/>
+      <line x1="490" y1="480" x2="490" y2="498"/>
+      <line x1="705" y1="464" x2="705" y2="480"/>
+      <line x1="705" y1="480" x2="490" y2="480"/>
+      <line x1="490" y1="558" x2="490" y2="592"/>
+      <line x1="490" y1="652" x2="490" y2="686"/>
+    </g>
+  </g>
+</svg>

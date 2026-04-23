@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="190" viewBox="0 0 1240 190" role="img" aria-labelledby="title desc">
+  <title id="title">MDPipeline flowchart</title>
+  <desc id="desc">Boltz and Vina inputs flow through selection, validation, preparation, protonation, solvated system build, OpenMM MD, trajectory analysis, MM/GBSA, and final summaries.</desc>
+  <style>
+    .label { font: 14px sans-serif; fill: #111; }
+    .small { font: 12px sans-serif; fill: #333; }
+    .input { fill: #eef6ff; stroke: #5b8bdc; }
+    .prep { fill: #eefbf0; stroke: #53a653; }
+    .sim { fill: #fff6e8; stroke: #cc8a2b; }
+    .out { fill: #f4f1ff; stroke: #7a5fd0; }
+    .box { rx: 10; ry: 10; stroke-width: 2; }
+    .arrow { stroke: #555; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect class="box input" x="20" y="60" width="125" height="60" />
+  <text class="label" x="82.5" y="85" text-anchor="middle">Boltz/Vina</text>
+  <text class="small" x="82.5" y="104" text-anchor="middle">run directory</text>
+
+  <rect class="box prep" x="170" y="60" width="110" height="60" />
+  <text class="label" x="225" y="85" text-anchor="middle">1. Select</text>
+  <text class="small" x="225" y="104" text-anchor="middle">best model</text>
+
+  <rect class="box prep" x="305" y="60" width="120" height="60" />
+  <text class="label" x="365" y="85" text-anchor="middle">2. Validate</text>
+  <text class="small" x="365" y="104" text-anchor="middle">pose assets</text>
+
+  <rect class="box prep" x="450" y="60" width="125" height="60" />
+  <text class="label" x="512.5" y="85" text-anchor="middle">3. Prepare</text>
+  <text class="small" x="512.5" y="104" text-anchor="middle">receptor + ligand</text>
+
+  <rect class="box prep" x="600" y="60" width="125" height="60" />
+  <text class="label" x="662.5" y="85" text-anchor="middle">4. Optional</text>
+  <text class="small" x="662.5" y="104" text-anchor="middle">protonation</text>
+
+  <rect class="box prep" x="750" y="60" width="135" height="60" />
+  <text class="label" x="817.5" y="85" text-anchor="middle">5. Build</text>
+  <text class="small" x="817.5" y="104" text-anchor="middle">solvated system</text>
+
+  <rect class="box sim" x="910" y="60" width="110" height="60" />
+  <text class="label" x="965" y="85" text-anchor="middle">6. OpenMM</text>
+  <text class="small" x="965" y="104" text-anchor="middle">MD</text>
+
+  <rect class="box sim" x="1045" y="20" width="115" height="60" />
+  <text class="label" x="1102.5" y="45" text-anchor="middle">7. Analyze</text>
+  <text class="small" x="1102.5" y="64" text-anchor="middle">trajectory</text>
+
+  <rect class="box sim" x="1045" y="100" width="115" height="60" />
+  <text class="label" x="1102.5" y="125" text-anchor="middle">8. Run</text>
+  <text class="small" x="1102.5" y="144" text-anchor="middle">MM/GBSA</text>
+
+  <rect class="box out" x="1180" y="60" width="45" height="60" />
+  <text class="label" x="1202.5" y="85" text-anchor="middle">9.</text>
+  <text class="small" x="1202.5" y="104" text-anchor="middle">final</text>
+
+  <path class="arrow" d="M145 90 H170" />
+  <path class="arrow" d="M280 90 H305" />
+  <path class="arrow" d="M425 90 H450" />
+  <path class="arrow" d="M575 90 H600" />
+  <path class="arrow" d="M725 90 H750" />
+  <path class="arrow" d="M885 90 H910" />
+  <path class="arrow" d="M1020 90 H1032 Q1040 90 1040 82 V60" />
+  <path class="arrow" d="M1020 90 H1032 Q1040 90 1040 98 V120" />
+  <path class="arrow" d="M1160 50 H1170 Q1180 50 1180 60 V78" />
+  <path class="arrow" d="M1160 130 H1170 Q1180 130 1180 120 V102" />
+</svg>

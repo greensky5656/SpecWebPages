@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Design Option 3 — Clinical Review Workspace</title>
+<style>
+:root { --bg:#eef2f4; --panel:#ffffff; --panel-alt:#f7fafb; --ink:#20313d; --muted:#657682; --line:#d8e0e6; --accent:#2a6f77; --accent-soft:#e6f1f2; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 Inter, Arial, sans-serif; }
+a { color:var(--accent); text-decoration:none; }
+.wrap { max-width:1240px; margin:0 auto; padding:28px 22px 56px; }
+header { display:grid; grid-template-columns:2fr 1fr; gap:18px; margin-bottom:22px; }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:22px; }
+.kicker { font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:700; }
+h1 { margin:8px 0 12px; font-size:38px; line-height:1.12; }
+header p { margin:0; color:var(--muted); max-width:820px; }
+.summary-box ul { margin:10px 0 0; padding-left:18px; color:#42525d; }
+.grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; }
+.card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px; }
+.row-top { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; }
+.eyebrow { font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:700; }
+.card h3 { margin:4px 0 10px; font-size:24px; line-height:1.25; }
+.card p { margin:0 0 14px; color:#4e606d; }
+.tag { background:var(--accent-soft); color:var(--accent); border:1px solid #bfd5d8; padding:7px 10px; border-radius:999px; font-size:12px; font-weight:700; white-space:nowrap; }
+.pills { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 16px; }
+.pills span { background:var(--panel-alt); border:1px solid var(--line); color:#465864; padding:7px 10px; border-radius:999px; font-size:13px; }
+.actions { display:flex; flex-wrap:wrap; gap:10px; }
+.actions a { border:1px solid var(--line); border-radius:8px; padding:10px 12px; background:var(--panel-alt); font-weight:600; }
+.actions a.primary { background:var(--accent); color:white; border-color:var(--accent); }
+@media (max-width: 920px) { header { grid-template-columns:1fr; } .grid { grid-template-columns:1fr; } h1 { font-size:32px; } }
+</style>
+</head>
+<body>
+  <div class='wrap'>
+    <header>
+      <section class='panel'>
+        <div class='kicker'>Design option 3</div>
+        <h1>Clinical review workspace</h1>
+        <p>A modern but still sober implementation for multidisciplinary review teams. It keeps a light institutional palette, removes decorative effects, and uses structured panels to support scanning by scientists, operators, and decision-makers.</p>
+      </section>
+      <aside class='panel summary-box'>
+        <div class='kicker'>Why choose this</div>
+        <ul>
+          <li>Best balance of clarity and modern usability</li>
+          <li>Supports dense metadata without feeling heavy</li>
+          <li>Works well for both landing page and per-spec page</li>
+        </ul>
+      </aside>
+    </header>
+    <section class='grid'>
+      
+    <article class='card'>
+      <div class='row-top'>
+        <div>
+          <div class='eyebrow'>mdpipeline</div>
+          <h3>MDPipeline Specification</h3>
+        </div>
+        <div class='tag'>Ready for review</div>
+      </div>
+      <p>Codebase-grounded scientific review page for MDPipeline.</p>
+      <div class='pills'>
+        <span>Genetics director, thermodynamics engineers, chemical / molecular engineers</span>
+        <span>Single-pose downstream MD + MM/GBSA workflow for comparative ranking support</span>
+      </div>
+      <div class='actions'>
+        <a class='primary' href='specification.html'>Preview workspace style</a>
+        <a href='../mdpipeline/latest/specification.html'>Current production page</a>
+      </div>
+    </article>
+    
+
+    <article class='card'>
+      <div class='row-top'>
+        <div>
+          <div class='eyebrow'>openfe</div>
+          <h3>OpenFE pmx/GROMACS Mutation RBFE Specification</h3>
+        </div>
+        <div class='tag'>Ready for review</div>
+      </div>
+      <p>Codebase-grounded scientific review page for the OpenFE pmx/GROMACS mutation-RBFE pipeline.</p>
+      <div class='pills'>
+        <span>Genetics director, mutation-effect reviewers, thermodynamics engineers</span>
+        <span>Fail-closed pmx/GROMACS WT/MUT mutation-RBFE orchestration with QC, reporting, and release surfaces</span>
+      </div>
+      <div class='actions'>
+        <a class='primary' href='specification.html'>Preview workspace style</a>
+        <a href='../openfe/latest/specification.html'>Current production page</a>
+      </div>
+    </article>
+    
+
+    <article class='card'>
+      <div class='row-top'>
+        <div>
+          <div class='eyebrow'>autodockvina</div>
+          <h3>autodockvina Specification</h3>
+        </div>
+        <div class='tag'>Ready for review</div>
+      </div>
+      <p>Codebase-grounded scientific review page for the Boltz → Meeko → AutoDock Vina workflow.</p>
+      <div class='pills'>
+        <span>Genetics director, docking/calibration reviewers, thermodynamics engineers</span>
+        <span>Docking, feature engineering, learned calibration, and optional ABFE pilot surfaces</span>
+      </div>
+      <div class='actions'>
+        <a class='primary' href='specification.html'>Preview workspace style</a>
+        <a href='../autodockvina/latest/specification.html'>Current production page</a>
+      </div>
+    </article>
+    
+
+    <article class='card'>
+      <div class='row-top'>
+        <div>
+          <div class='eyebrow'>boltzbase</div>
+          <h3>boltzbase Specification</h3>
+        </div>
+        <div class='tag'>Ready for review</div>
+      </div>
+      <p>Codebase-grounded scientific review page for boltzbase / Boltz affinity-prediction surfaces.</p>
+      <div class='pills'>
+        <span>Genetics director, screening reviewers, thermodynamics engineers</span>
+        <span>Native structure + affinity model output surfaces with separate non-productized evaluation scripts</span>
+      </div>
+      <div class='actions'>
+        <a class='primary' href='specification.html'>Preview workspace style</a>
+        <a href='../boltzbase/latest/specification.html'>Current production page</a>
+      </div>
+    </article>
+    
+    </section>
+  </div>
+</body>
+</html>

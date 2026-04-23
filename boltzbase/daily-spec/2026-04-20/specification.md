@@ -1,6 +1,6 @@
 # boltzbase Specification
 
-Updated: 2026-04-20 21:13:35 PDT
+Updated: 2026-04-20 21:13:35 PST
 
 Codebase-grounded scientific review of the current boltzbase / boltz-main shipped surfaces: predict CLI, structure outputs, Boltz-2 affinity pass, writer contract, and the distinction between native output capability and non-productized evaluation scripts.
 

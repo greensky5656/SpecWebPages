@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Design Option 2 — Spec page preview</title>
+<style>
+:root { --bg:#f8f6f1; --paper:#fffdf8; --ink:#1f2a34; --muted:#5d6974; --line:#d8d0c2; --accent:#3f6178; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.75 Georgia, "Times New Roman", serif; }
+a { color:var(--accent); text-decoration:none; }
+header { max-width:900px; margin:0 auto; padding:40px 24px 24px; text-align:center; }
+header .type { text-transform:uppercase; letter-spacing:.18em; font:12px/1.2 Arial, sans-serif; color:var(--muted); font-weight:700; }
+h1 { margin:16px auto 12px; font-size:46px; line-height:1.12; max-width:780px; font-weight:600; }
+header .dek { max-width:760px; margin:0 auto; color:var(--muted); }
+.meta-bar { max-width:900px; margin:0 auto; padding:12px 24px 24px; border-bottom:1px solid var(--line); color:var(--muted); font:14px/1.4 Arial, sans-serif; display:flex; flex-wrap:wrap; gap:18px; justify-content:center; }
+article { max-width:900px; margin:0 auto; padding:24px; }
+section { background:var(--paper); border:1px solid var(--line); padding:26px 28px; margin-bottom:18px; }
+section h2 { margin:0 0 12px; font-size:31px; line-height:1.2; font-weight:600; }
+section p { margin:0; color:#3c4a55; }
+blockquote { margin:14px 0 0; padding:14px 18px; border-left:3px solid var(--accent); background:#faf8f1; color:#43505a; }
+ol.toc { columns:2; gap:28px; margin:0; padding-left:20px; font:15px/1.7 Arial, sans-serif; color:#33424d; }
+code { font-family:"Courier New", monospace; font-size:.92em; background:#f2eee4; padding:2px 6px; }
+@media (max-width: 760px) { body { font-size:17px; } h1 { font-size:36px; } ol.toc { columns:1; } section h2 { font-size:27px; } }
+</style>
+</head>
+<body>
+  <header>
+    <div class='type'>Design option 2 — article preview</div>
+    <h1>MDPipeline Specification</h1>
+    <p class='dek'>This implementation makes the spec read like a scientific commentary or validation memo rather than a software product page. It prioritizes reading comfort, long-form explanation, and citation-like discipline.</p>
+  </header>
+  <div class='meta-bar'>
+    <span>Audience: scientific and regulatory reviewers</span>
+    <span>Format: long-form review article</span>
+    <span>Refresh basis: current code/tests</span>
+  </div>
+  <article>
+    <section>
+      <h2>Contents</h2>
+      <ol class='toc'>
+        <li>Executive view for signoff</li><li>Actual shipped operator surface</li><li>Scientific workflow actually implemented</li><li>What scientific reviewers should separate</li><li>Current scientific and operational limits</li><li>Recommended signoff questions</li><li>Evidence appendix</li><li>Top current clarifications</li>
+      </ol>
+    </section>
+    <section><h2>Executive view for signoff</h2><p>This page is written as a reviewable record for scientific and regulatory stakeholders. It emphasizes current shipped behavior, explicit limitations, and where signoff should remain conditional.</p><blockquote>Reviewer lens: ask whether this claim is backed by current code, current tests, or only documentation and intent.</blockquote></section><section><h2>Actual shipped operator surface</h2><p>The current operator surface is presented as a bounded, source-grounded description of commands, artifact paths, and output contracts rather than roadmap intent.</p><blockquote>Reviewer lens: ask whether this claim is backed by current code, current tests, or only documentation and intent.</blockquote></section><section><h2>Scientific workflow actually implemented</h2><p>The workflow section describes the implemented sequence of selection, simulation, scoring, calibration, or reporting as evidenced by current source code and tests.</p><blockquote>Reviewer lens: ask whether this claim is backed by current code, current tests, or only documentation and intent.</blockquote></section><section><h2>What scientific reviewers should separate</h2><p>Reviewers should separate shipped code, generated artifacts, test-only or synthetic proof paths, and future or partially materialized claims.</p><blockquote>Reviewer lens: ask whether this claim is backed by current code, current tests, or only documentation and intent.</blockquote></section><section><h2>Current scientific and operational limits</h2><p>Known limitations, host/tool dependencies, and scientific authority boundaries are elevated rather than hidden.</p><blockquote>Reviewer lens: ask whether this claim is backed by current code, current tests, or only documentation and intent.</blockquote></section><section><h2>Recommended signoff questions</h2><p>The page closes with concrete reviewer prompts that can be used for governance, validation, and release readiness discussions.</p><blockquote>Reviewer lens: ask whether this claim is backed by current code, current tests, or only documentation and intent.</blockquote></section><section><h2>Evidence appendix</h2><p>All substantive claims should resolve to exact files, commands, tests, or artifact families so the page remains auditable.</p><blockquote>Reviewer lens: ask whether this claim is backed by current code, current tests, or only documentation and intent.</blockquote></section><section><h2>Top current clarifications</h2><p>Short, high-signal clarifications capture the main things a scientific or FDA-style reviewer should not misread.</p><blockquote>Reviewer lens: ask whether this claim is backed by current code, current tests, or only documentation and intent.</blockquote></section>
+    <section>
+      <h2>Evidence appendix example</h2>
+      <p>Claims should resolve to concrete sources such as <code>md_pipeline/cli.py</code>, <code>md_pipeline/protocol.py</code>, and test files that prove or constrain the behavioral statement being made.</p>
+    </section>
+  </article>
+</body>
+</html>

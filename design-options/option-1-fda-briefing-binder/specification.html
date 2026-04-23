@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Design Option 1 — Spec page preview</title>
+<style>
+:root { --ink:#18324a; --ink-soft:#566b7f; --line:#d3dce5; --bg:#f5f6f7; --panel:#ffffff; --accent:#315d89; --table:#eef3f7; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 "Source Sans 3", Arial, sans-serif; }
+a { color:var(--accent); text-decoration:none; }
+.layout { display:grid; grid-template-columns:260px minmax(0, 1fr); max-width:1360px; margin:0 auto; min-height:100vh; }
+aside { border-right:1px solid var(--line); background:#f1f4f7; padding:28px 20px; }
+aside h2 { font-size:16px; text-transform:uppercase; letter-spacing:.08em; margin:0 0 16px; color:var(--ink-soft); }
+aside ol { margin:0; padding-left:18px; }
+aside li { margin:10px 0; }
+aside a { color:var(--ink); }
+main { padding:28px 34px 60px; }
+.hero { background:var(--panel); border:1px solid var(--line); padding:28px 32px; }
+.hero .kicker { font-size:12px; text-transform:uppercase; letter-spacing:.12em; color:var(--ink-soft); font-weight:700; }
+h1 { margin:8px 0 12px; font-size:40px; line-height:1.1; }
+.hero p { max-width:900px; margin:0; color:var(--ink-soft); }
+.topline { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:18px; }
+.metric { border:1px solid var(--line); background:var(--table); padding:12px 14px; }
+.metric strong { display:block; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); margin-bottom:6px; }
+.section { background:var(--panel); border:1px solid var(--line); padding:24px 28px; margin-top:16px; }
+.section h2 { margin:0 0 10px; font-size:28px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+.section p { margin:0; color:#30485d; max-width:920px; }
+.table { width:100%; border-collapse:collapse; margin-top:14px; }
+.table th,.table td { border:1px solid var(--line); padding:10px 12px; text-align:left; }
+.table th { background:var(--table); font-size:13px; text-transform:uppercase; letter-spacing:.06em; }
+@media (max-width: 980px) { .layout { grid-template-columns:1fr; } aside { border-right:none; border-bottom:1px solid var(--line); } .topline { grid-template-columns:1fr; } h1 { font-size:34px; } }
+</style>
+</head>
+<body>
+  <div class='layout'>
+    <aside>
+      <h2>Contents</h2>
+      <ol>
+        <li><a href='#1'>Executive view for signoff</a></li><li><a href='#2'>Actual shipped operator surface</a></li><li><a href='#3'>Scientific workflow actually implemented</a></li><li><a href='#4'>What scientific reviewers should separate</a></li><li><a href='#5'>Current scientific and operational limits</a></li><li><a href='#6'>Recommended signoff questions</a></li><li><a href='#7'>Evidence appendix</a></li><li><a href='#8'>Top current clarifications</a></li>
+      </ol>
+    </aside>
+    <main>
+      <section class='hero'>
+        <div class='kicker'>Design option 1 — spec page preview</div>
+        <h1>MDPipeline Specification</h1>
+        <p>This implementation presents the spec as a formal review memorandum rather than a product website. The hierarchy is optimized for clinical and FDA-style reading, printing, and screen-sharing.</p>
+        <div class='topline'>
+          <div class='metric'><strong>Status</strong>Active review artifact</div>
+          <div class='metric'><strong>Primary audience</strong>Scientific and regulatory reviewers</div>
+          <div class='metric'><strong>Refresh method</strong>Current code/tests over README summaries</div>
+        </div>
+      </section>
+      <section class='section' id='1'><h2>Executive view for signoff</h2><p>This page is written as a reviewable record for scientific and regulatory stakeholders. It emphasizes current shipped behavior, explicit limitations, and where signoff should remain conditional.</p></section><section class='section' id='2'><h2>Actual shipped operator surface</h2><p>The current operator surface is presented as a bounded, source-grounded description of commands, artifact paths, and output contracts rather than roadmap intent.</p></section><section class='section' id='3'><h2>Scientific workflow actually implemented</h2><p>The workflow section describes the implemented sequence of selection, simulation, scoring, calibration, or reporting as evidenced by current source code and tests.</p></section><section class='section' id='4'><h2>What scientific reviewers should separate</h2><p>Reviewers should separate shipped code, generated artifacts, test-only or synthetic proof paths, and future or partially materialized claims.</p></section><section class='section' id='5'><h2>Current scientific and operational limits</h2><p>Known limitations, host/tool dependencies, and scientific authority boundaries are elevated rather than hidden.</p></section><section class='section' id='6'><h2>Recommended signoff questions</h2><p>The page closes with concrete reviewer prompts that can be used for governance, validation, and release readiness discussions.</p></section><section class='section' id='7'><h2>Evidence appendix</h2><p>All substantive claims should resolve to exact files, commands, tests, or artifact families so the page remains auditable.</p></section><section class='section' id='8'><h2>Top current clarifications</h2><p>Short, high-signal clarifications capture the main things a scientific or FDA-style reviewer should not misread.</p></section>
+      <section class='section'>
+        <h2>Evidence appendix example</h2>
+        <table class='table'>
+          <tr><th>Evidence class</th><th>Example</th><th>Why it matters</th></tr>
+          <tr><td>CLI surface</td><td><code>md_pipeline/cli.py</code></td><td>Defines what operators can actually run.</td></tr>
+          <tr><td>Workflow logic</td><td><code>md_pipeline/protocol.py</code></td><td>Defines implemented stage transitions.</td></tr>
+          <tr><td>Test backing</td><td><code>tests/test_protocol.py</code></td><td>Shows what behavior is asserted versus merely described.</td></tr>
+        </table>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

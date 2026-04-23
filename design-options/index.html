@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>SpecWebpages design options</title>
+<style>
+:root { --bg:#f3f5f7; --panel:#fff; --ink:#22313b; --muted:#64737f; --line:#d6dde3; --accent:#245d73; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 Inter, Arial, sans-serif; }
+a { color:var(--accent); text-decoration:none; }
+.wrap { max-width:1100px; margin:0 auto; padding:28px 22px 48px; }
+header { margin-bottom:18px; }
+h1 { margin:0 0 10px; font-size:38px; }
+header p { margin:0; color:var(--muted); max-width:860px; }
+.grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; }
+.card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px; }
+.card h2 { margin:0 0 8px; font-size:24px; }
+.card p { margin:0 0 14px; color:#4a5b67; }
+ul { padding-left:18px; color:#4a5b67; }
+.actions { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+.actions a { border:1px solid var(--line); border-radius:8px; padding:10px 12px; background:#f9fbfc; }
+@media (max-width: 920px) { .grid { grid-template-columns:1fr; } h1 { font-size:32px; } }
+</style>
+</head>
+<body>
+  <div class='wrap'>
+    <header>
+      <h1>SpecWebpages design options</h1>
+      <p>Three lighter, clinically appropriate replacements for the current dark, gradient-heavy design. Each option includes a landing-page preview and a representative spec-page preview.</p>
+    </header>
+    <section class='grid'>
+      <article class='card'>
+        <h2>1. FDA briefing binder</h2>
+        <p>Institutional memo style with the strongest regulatory tone.</p>
+        <ul><li>Best for formal review packets</li><li>Most conservative aesthetic</li><li>Easy to print or screenshot</li></ul>
+        <div class='actions'>
+          <a href='option-1-fda-briefing-binder/index.html'>Landing page preview</a>
+          <a href='option-1-fda-briefing-binder/specification.html'>Spec page preview</a>
+        </div>
+      </article>
+      <article class='card'>
+        <h2>2. Scientific journal</h2>
+        <p>Editorial/article style optimized for reading depth and scientific commentary.</p>
+        <ul><li>Best for long-form reading</li><li>Most publication-like</li><li>Strongest emphasis on prose and argument</li></ul>
+        <div class='actions'>
+          <a href='option-2-scientific-journal/index.html'>Landing page preview</a>
+          <a href='option-2-scientific-journal/specification.html'>Spec page preview</a>
+        </div>
+      </article>
+      <article class='card'>
+        <h2>3. Clinical review workspace</h2>
+        <p>Structured light UI that balances seriousness with scanability.</p>
+        <ul><li>Best all-around option</li><li>Good for dense metadata</li><li>Modern without looking promotional</li></ul>
+        <div class='actions'>
+          <a href='option-3-clinical-review-workspace/index.html'>Landing page preview</a>
+          <a href='option-3-clinical-review-workspace/specification.html'>Spec page preview</a>
+        </div>
+      </article>
+    </section>
+  </div>
+</body>
+</html>
